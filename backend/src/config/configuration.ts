@@ -8,8 +8,9 @@ export const configuration = () => ({
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
     synchronize: true,
-    logging: true,
+    logging: false,
     dropSchema: false,
     entities: ['dist/**/*.entity{.ts,.js}'],
   },
+  jwtSecret: process.env.JWT_SECRET,
 });
