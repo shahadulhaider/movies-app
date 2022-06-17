@@ -10,9 +10,13 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new LoggingInterceptor());
-
   const config = app.get(ConfigService);
+
   const port = config.get('port');
+
+  app.enableCors({
+    origin: true,
+  });
 
   await app.listen(port);
   Logger.log(`Api server listening on ${await app.getUrl()}/api`, 'Bootstrap');

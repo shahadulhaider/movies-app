@@ -1,0 +1,12 @@
+.header {
+  background-color: #013220cc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+@media screen and (max-width: 319px) {
+  flex-direction: row;
+}

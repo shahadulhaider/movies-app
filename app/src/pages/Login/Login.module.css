@@ -1,0 +1,137 @@
+.auth-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 6rem;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #5cb85c88;
+}
+
+.image > img {
+  width: 450px;
+  height: 600px;
+}
+
+.signin-form {
+  padding: 2rem;
+  width: 500px;
+}
+
+.signin-form > h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  font-size: 45px;
+}
+
+.signin-form > p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+form > input {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  min-width: 400px;
+  font-size: 1.05em;
+}
+
+form > button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  background-color: #013220cc;
+  border-color: #013220cc;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  min-width: 400px;
+  text-transform: uppercase;
+}
+
+form > button:disabled {
+  color: #fff;
+  background-color: darkgrey;
+  border-color: black;
+  border: none;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 320px) {
+  form > input {
+    min-width: 280px;
+  }
+  form > input {
+    min-width: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth-page {
+    padding: 0;
+    justify-content: center;
+  }
+  .form-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .image {
+    justify-items: center;
+  }
+  .image > img {
+    width: 320px;
+    height: 300px;
+  }
+  .signin-form {
+    padding: 0;
+    width: 85%;
+  }
+  form > input {
+    min-width: 320px;
+  }
+  form > button {
+    min-width: 320px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .form-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .image {
+    justify-items: center;
+  }
+  .image > img {
+    width: 720px;
+    height: 600px;
+  }
+  .signin-form {
+    padding: 0;
+    width: 85%;
+  }
+}

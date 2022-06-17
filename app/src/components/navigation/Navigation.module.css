@@ -1,0 +1,78 @@
+.navbar {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rem;
+}
+
+.navbar > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 38px;
+}
+
+.navbar > ul {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.navbar > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 3rem;
+}
+
+.navbar > ul > li > a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0;
+  }
+  .navbar > a {
+    font-weight: 400;
+    font-size: 28px;
+  }
+  .navbar > ul {
+    margin-top: 30px;
+    justify-content: center;
+  }
+  .navbar > ul > li {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    padding: 0;
+  }
+  .navbar > a {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+}
+
+@media screen and (min-width: 1201px) {
+}
