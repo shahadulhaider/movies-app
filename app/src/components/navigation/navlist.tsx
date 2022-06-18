@@ -1,35 +1,68 @@
-import { FC } from "react";
-import { useAppSelector } from "store/hooks";
-import { selectUser } from "store/slices/userSlice";
+import { FC, MouseEvent } from "react";
+import { FaHome, FaSignInAlt, FaSignOutAlt, FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { logOut, selectUsername } from "store/slices/userSlice";
+import css from "./Navigation.module.css";
 import { NavItem } from "./navItem";
 
 export const NavList: FC = () => {
-  const user = useAppSelector(selectUser);
+  const username = useAppSelector(selectUsername);
 
-  const loggenInItems = user && (
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleClick = (e: MouseEvent<Element>) => {
+    e.stopPropagation();
+    dispatch(logOut());
+    navigate("/");
+  };
+
+  const loggenInItems = username && (
     <>
-      <NavItem to="/editor" icon="ion-compose">
-        &nbsp;New Article
+      {/* <NavItem to="/add-favorite">
+        <span className={css.icon}>
+          <FaPlus />
+        </span>{" "}
+        Add New Movie
+      </NavItem> */}
+      <NavItem to={""}>
+        <span onClick={(e) => handleClick(e)} className={css.icon}>
+          <FaSignOutAlt />
+        </span>{" "}
+        <span onClick={(e) => handleClick(e)}> Logout</span>
       </NavItem>
-      <NavItem to="/settings" icon="ion-gear-a">
-        &nbsp;Settings
-      </NavItem>
-      {/* <NavItem to={`/profile/${user.username}`} user={user}>{user.username}</NavItem> */}
+      <NavItem to={`/profile/${username}`} username={username}></NavItem>
     </>
   );
 
   const registerItems = (
     <>
-      <NavItem to="/login">Sign in</NavItem>
-      <NavItem to="/register">Sign up</NavItem>
+      <NavItem to="/login">
+        <span className={css.icon}>
+          <FaSignInAlt />
+        </span>{" "}
+        Sign in
+      </NavItem>
+      <NavItem to="/register">
+        <span className={css.icon}>
+          <FaUserAlt />
+        </span>{" "}
+        Sign up
+      </NavItem>
     </>
   );
 
   return (
-    <ul className="nav navbar-nav pull-xs-right">
+    <ul>
       <>
-        <NavItem to="/">Home</NavItem>
-        {user ? loggenInItems : registerItems}
+        <NavItem to="/">
+          <span className={css.icon}>
+            <FaHome />
+          </span>{" "}
+          Home
+        </NavItem>
+        {username ? loggenInItems : registerItems}
       </>
     </ul>
   );

@@ -1,4 +1,4 @@
-import { LoginUser, RegisterUser, UserRes } from "types/user";
+import { LoginUser, RegisterUser, User, UserRes } from "types/user";
 import api from "./apiService";
 
 // User and Authentication
@@ -12,14 +12,10 @@ export const Auth = {
   current: async (token: string) =>
     await api.get<UserRes>("auth/me", {
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: token,
       },
     }),
 
-  getUser: async (token: string, username: string) =>
-    await api.get<UserRes>(`users/u/${username}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    }),
+  getUser: async (username: string) =>
+    await api.get<User>(`users/u/${username}`),
 };

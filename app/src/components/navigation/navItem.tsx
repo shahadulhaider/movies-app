@@ -1,27 +1,23 @@
 import { FC, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { User } from "types/user";
+import css from "./Navigation.module.css";
 
 interface NavItemProps {
   to: string;
-  icon?: string;
-  user?: User;
-  children: ReactNode;
+  username?: string;
+  children?: ReactNode;
 }
 
-export const NavItem: FC<NavItemProps> = ({ to, user, icon, children }) => {
-  const userImg =
-    user &&
-    {
-      /* <img src={user.image} className="user-pic" alt={user.username} /> */
-    };
-
+export const NavItem: FC<NavItemProps> = ({ to, username, children }) => {
   return (
-    <li className="nav-item">
-      <NavLink to={to} className="nav-link">
+    <li>
+      <NavLink to={to}>
         <>
-          {icon && <i className={icon}></i>}
-          {user && userImg}
+          {username && (
+            <span className={css.user}>
+              {username.slice(0, 2).toUpperCase()}
+            </span>
+          )}
           {children}
         </>
       </NavLink>

@@ -38,6 +38,21 @@
   text-transform: uppercase;
 }
 
+.user {
+  background: white;
+  padding: 15px;
+  border-radius: 50%;
+  color: black;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.icon > svg {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+
 @media screen and (max-width: 480px) {
   .navbar {
     flex-direction: column;
@@ -54,6 +69,10 @@
   .navbar > ul > li {
     padding: 0 1rem;
   }
+
+  .icon > svg {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -69,10 +88,4 @@
   .navbar {
     padding: 0 3rem;
   }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
-}
-
-@media screen and (min-width: 1201px) {
 }

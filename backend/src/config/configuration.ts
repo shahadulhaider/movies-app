@@ -13,4 +13,5 @@ export const configuration = () => ({
     entities: ['dist/**/*.entity{.ts,.js}'],
   },
   jwtSecret: process.env.JWT_SECRET,
+  clientUrl: process.env.CLIENT_URL,
 });

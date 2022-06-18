@@ -78,9 +78,6 @@ export const Login: FC = () => {
               value={password}
               onChange={(e) => onInputChanged(e)}
               required
-              minLength={6}
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])"
-              title="Password should contain 1 uppercase, 1 lowercase and 1 number at least"
             />
             <button disabled={!canLogin}>
               Sign in {status === "loading" && <Spinner />}

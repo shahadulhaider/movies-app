@@ -33,10 +33,8 @@ export const getCurrentUser = createAsyncThunk(
   async (token: string, { rejectWithValue }) => {
     try {
       const { data } = await Auth.current(token);
-      console.log(data);
       return data;
     } catch (error: any) {
-      console.log(error);
       throw error.response ? rejectWithValue(getErrorData(error)) : error;
     }
   }
@@ -44,14 +42,12 @@ export const getCurrentUser = createAsyncThunk(
 
 export const getUserProfile = createAsyncThunk(
   "user/getUserProfile",
-  async (username: string, { getState, rejectWithValue }) => {
-    // @ts-ignore
-    const token: string = getState().user.user.token;
+  async (username: string, { rejectWithValue }) => {
     try {
-      const { data } = await Auth.getUser(token, username);
+      const { data } = await Auth.getUser(username);
       return data;
     } catch (error: any) {
-      console.log(error);
+      console.log({ error });
       throw error.response ? rejectWithValue(getErrorData(error)) : error;
     }
   }
@@ -65,7 +61,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    loggedOut: () => {
+    logOut: () => {
       localStorage.removeItem("jwt");
       return initialState;
     },
@@ -74,15 +70,18 @@ const userSlice = createSlice({
     builder.addMatcher(
       isFulfilled(getCurrentUser, loginUser, registerUser, getUserProfile),
       (state, action) => {
-        console.log(action.payload);
-        localStorage.setItem("jwt", action.payload.token);
-        state.user = action.payload;
+        if (action.payload.token) {
+          localStorage.setItem("jwt", action.payload.token);
+          state.user = action.payload;
+        } else {
+          state.user!.user = action.payload;
+        }
       }
     );
   },
 });
 
-export const { loggedOut } = userSlice.actions;
+export const { logOut } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user.user;
 export const selectUsername = (state: RootState) =>

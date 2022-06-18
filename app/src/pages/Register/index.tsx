@@ -90,8 +90,6 @@ export const Register: FC = () => {
               onChange={(e) => onInputChanged(e)}
               required
               minLength={6}
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])"
-              title="Password should contain 1 uppercase, 1 lowercase and 1 number at least and should be of minimum of 6 characters long"
             />
             <button disabled={!canRegister}>
               Sign up {status === "loading" && <Spinner />}
