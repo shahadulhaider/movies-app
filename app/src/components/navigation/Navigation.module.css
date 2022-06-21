@@ -44,7 +44,7 @@
   border-radius: 50%;
   color: black;
   font-weight: 700;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .icon > svg {

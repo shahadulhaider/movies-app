@@ -5,6 +5,7 @@ import { Footer } from "layouts/Footer";
 import { Header } from "layouts/Header";
 import { Home } from "pages/Home";
 import { Login } from "pages/Login";
+import { Movie } from "pages/Movie";
 import { Profile } from "pages/Profile";
 import { Register } from "pages/Register";
 import { FC, useEffect, useState } from "react";
@@ -52,6 +53,7 @@ const App: FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="movies/:title" element={<Movie />} />
         <Route element={<RequireAuth />}>
           <Route path="profile/:username" element={<Profile />} />
         </Route>
