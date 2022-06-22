@@ -56,3 +56,6 @@ export const slugify = (text: string): string => {
 
   return str;
 };
+
+// capitalize
+export const capSize = (s: string): string => s[0].toUpperCase() + s.slice(1);

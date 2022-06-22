@@ -1,0 +1,163 @@
+.profile-page {
+  flex: 1;
+  padding: 2rem 7rem;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  min-height: 65vh;
+  width: 220px;
+  background: #d3d3d333;
+  border-radius: 8px;
+  margin-right: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar > h3 {
+  font-size: 30px;
+  font-weight: 200;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+}
+
+.profile-info {
+  font-weight: 200;
+  flex: 1;
+}
+.profile-info > div > span {
+  margin-right: 4px;
+  font-weight: 400;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 140px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.list {
+  flex: 1;
+}
+
+.head {
+  font-weight: 200;
+  font-size: 22px;
+  background: #d3d3d345;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.favorites {
+  display: grid;
+  grid-gap: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-gap: 25px;
+  box-shadow: 0 4px 8px 0 #d3d3d3;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.poster {
+  width: 100px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 200;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.meta {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: grey;
+}
+
+.actors,
+.director {
+  font-size: 18px;
+  color: grey;
+}
+
+@media screen and (max-width: 480px) {
+  .profile-page {
+    padding: 1rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    min-height: auto;
+    min-width: 100%;
+  }
+  .sidebar > h3 {
+    font-size: 20px;
+    padding-bottom: 1rem;
+  }
+  .avatar {
+    display: none;
+  }
+  .grid {
+    border-radius: 0;
+  }
+  .meta,
+  .actors,
+  .director {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .profile-page {
+    padding: 1rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    min-height: auto;
+    min-width: 100%;
+  }
+  .sidebar > h3 {
+    font-size: 20px;
+  }
+  .avatar {
+    display: none;
+  }
+
+  .meta,
+  .actors,
+  .director {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .profile-page {
+    padding: 1rem 4rem;
+  }
+
+  .grid {
+    border-radius: 4px;
+  }
+}

@@ -64,7 +64,6 @@ export const Movie: FC = () => {
   if (!movie) {
     return <div className={css["movie-page"]}>No movie found</div>;
   }
-  console.log({ canLike });
 
   return (
     <div className={css["movie-page"]}>
