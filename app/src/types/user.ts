@@ -1,9 +1,12 @@
+import { Movie } from "./movie";
+
 export interface User {
   id: string;
   email: string;
   username: string;
   created: string;
   updated: string;
+  favorites: Movie[];
 }
 
 export interface LoginUser {

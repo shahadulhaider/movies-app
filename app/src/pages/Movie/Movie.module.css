@@ -23,6 +23,29 @@
   margin-bottom: 150px;
 }
 
+button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  background-color: #013220cc;
+  border-color: #013220cc;
+  border: none;
+  cursor: pointer;
+  width: 320px;
+  text-transform: uppercase;
+}
+
+button > span {
+  margin-left: 10px;
+}
+
+button > span > svg {
+  position: relative;
+  top: 2px;
+}
+
 .meta {
   margin-top: 2rem;
   display: flex;

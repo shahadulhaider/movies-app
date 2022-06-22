@@ -12,7 +12,7 @@ export const Auth = {
   current: async (token: string) =>
     await api.get<UserRes>("auth/me", {
       headers: {
-        authorization: token,
+        Authorization: token,
       },
     }),
 

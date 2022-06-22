@@ -8,7 +8,8 @@ axios.interceptors.request.use(function (config) {
 
   const token = store.getState().user.user?.token;
 
-  if (token) config.headers.Authorization = `${token}`;
+  if (token && !config.headers.Authorization)
+    config.headers.Authorization = `${token}`;
 
   return config;
 });

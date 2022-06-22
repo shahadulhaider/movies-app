@@ -1,5 +1,13 @@
 import { Exclude } from 'class-transformer';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/users/user.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Movie extends BaseEntity {
@@ -32,14 +40,19 @@ export class Movie extends BaseEntity {
   title: string;
 
   @Column()
-  year: number;
+  year: string;
 
   @Column()
   imdbID: string;
 
   @Column()
-  imdbRating: number;
+  imdbRating: string;
 
   @Column()
-  imdbVotes: number;
+  imdbVotes: string;
+
+  @ManyToMany(() => User, (user) => user.favorites)
+  @JoinTable()
+  @Exclude()
+  favoritedBy: User[];
 }

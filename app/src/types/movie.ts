@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface Movie {
   title: string;
   actors: string;
@@ -11,4 +13,5 @@ export interface Movie {
   imdbID: string;
   imdbRating: string;
   imdbVotes: string;
+  favoritedBy?: User[];
 }
